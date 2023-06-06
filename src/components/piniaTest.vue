@@ -2,6 +2,7 @@
     <div>
         <el-button @click="Add">+</el-button>
         <el-button @click="dispatchTest" >批量修改</el-button>
+        <el-button @click="dispatchFunc" >函数修改</el-button>
         <div>
             {{Test.current}}
         </div>
