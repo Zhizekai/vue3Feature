@@ -5,7 +5,6 @@
         <div>
             {{Test.current}}
         </div>
-
         <div>
             {{Test.age}}
         </div>
@@ -29,7 +28,7 @@ const dispatchTest = () => {
 const dispatchFunc = () => {
   Test.$patch((state) => {
       state.current++;
-      state.age = 40
+      state.age = 400
   })
 }
 </script>
