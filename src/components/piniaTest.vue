@@ -14,10 +14,18 @@
 <script setup lang="ts">
 import {computed, reactive, Ref, ref, toRef} from 'vue'
 import {useTestStore} from '../store/user.ts'
+import {storeToRefs} from "pinia";
+
 const Test = useTestStore()
+
+const {current,age} = storeToRefs(Test)
 const Add = () => {
     Test.current++
+
+    console.log(current,age)
 }
+
+
 
 const dispatchTest = () => {
     Test.$patch({
@@ -32,6 +40,7 @@ const dispatchFunc = () => {
       state.age = 400
   })
 }
+
 </script>
 <style scoped>
 
