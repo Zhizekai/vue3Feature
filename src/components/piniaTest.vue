@@ -3,11 +3,25 @@
         <el-button @click="Add">+</el-button>
         <el-button @click="dispatchTest" >批量修改</el-button>
         <el-button @click="dispatchFunc" >函数修改</el-button>
+        <el-button @click="addAction" >action修改</el-button>
+        <el-button @click="stateReset" >重置数据</el-button>
+        <el-button @click="setUserProfile" >异步获取用户数据</el-button>
         <div>
-            {{Test.current}}
+            current:{{Test.current}}
         </div>
         <div>
-            {{Test.age}}
+            age:{{Test.age}}
+        </div>
+        <div>
+            counter:{{Test.counter}}
+        </div>
+
+        <div>
+            User:{{Test.user}}
+        </div>
+        <div>
+            getters:{{Test.newName}}
+            {{getHandle()}}
         </div>
     </div>
 </template>
@@ -25,6 +39,12 @@ const Add = () => {
     console.log(current,age)
 }
 
+const getHandle = () => {
+    console.log(Test)
+    return Test.newName
+
+}
+
 
 
 const dispatchTest = () => {
@@ -40,6 +60,25 @@ const dispatchFunc = () => {
       state.age = 400
   })
 }
+
+const addAction = () => {
+    Test.randomizeCounter()
+}
+
+const stateReset = () => {
+    Test.$reset();
+}
+
+
+const setUserProfile = () => {
+    Test.getUserProfile();
+}
+// 订阅变化
+Test.$subscribe((args,state)=>{
+    console.log("订阅状态变化")
+    console.log(args,state);
+
+})
 
 </script>
 <style scoped>
