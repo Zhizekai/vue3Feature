@@ -12,23 +12,28 @@ let state = reactive({
     tabList: [
         {
             name: "监听器",
-            key: 0
+            key: 0,
+            url:'/'
         },
         {
             name: "计算属性",
-            key: 1
+            key: 1,
+            url:'computedFeature'
         },
         {
             name: "初始",
-            key: 2
+            key: 2,
+            url:'start'
         },
         {
             name: "插槽",
-            key: 3
+            key: 3,
+            url:'slotFeature'
         },
         {
             name: "pinia练习",
-            key: 4
+            key: 4,
+            url:'piniaTest'
         }
     ]
 });
@@ -50,6 +55,20 @@ const getList = (param) => {
         <a href="https://vuejs.org/" target="_blank">
             <img src="./assets/vue.svg" class="logo vue" alt="Vue logo"/>
         </a>
+    </div>
+    <div>
+        <div>
+            <!--使用 router-link 组件进行导航 -->
+            <!--通过传递 `to` 来指定链接 -->
+            <!--`<router-link>` 将呈现一个带有正确 `href` 属性的 `<a>` 标签-->
+            <router-link tag="div" to="/">跳转a</router-link>
+            <router-link tag="div" style="margin-left:200px" to="/register">跳转b</router-link>
+
+        </div>
+        <hr />
+        <!-- 路由出口 -->
+        <!-- 路由匹配到的组件将渲染在这里 -->
+        <router-view></router-view>
     </div>
     <el-row justify="center">
         <el-col :span="20" >

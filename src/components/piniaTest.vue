@@ -21,7 +21,9 @@
         </div>
         <div>
             getters:{{Test.newName}}
-            {{getHandle()}}
+        </div>
+        <div>
+            函数执行：{{getHandle()}}
         </div>
     </div>
 </template>
